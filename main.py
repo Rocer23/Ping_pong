@@ -12,12 +12,12 @@ class GameSprite(sprite.Sprite):
 
     def reset(self):
         virtual_surface.blit(self.image, (self.rect.x, self.rect.y))
-        
-        
+
+
 class Ball(GameSprite):
     def __init__(self):
-        super().__init__("images/Ball0.png", WIDTH // 2 - 25, HEIGHT // 2 - 25, 50, 50, 10)
-        
+        super().__init__("images/Ball0.png", WIDTH // 2 - 25, HEIGHT // 2 - 25, 209, 209, 10)
+
 
 class Rocket(GameSprite):
     def __init__(self, player_num):
@@ -28,7 +28,7 @@ class Rocket(GameSprite):
         if self.player_num == 2:
             self.x = WIDTH - 120
             self.angle = 90
-            
+
         super().__init__("images/platform0.png", 0, 0, 150, 20, 10)
 
         self.image = transform.rotate(self.image, self.angle)
@@ -51,6 +51,7 @@ virtual_surface = Surface((WIDTH, HEIGHT))
 current_size = window.get_size()
 
 ball = Ball()
+ball.image = transform.scale(ball.image, (50, 50))
 
 player_1 = Rocket(1)
 player_2 = Rocket(2)
