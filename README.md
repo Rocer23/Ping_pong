@@ -1,3 +1,3 @@
 # Ping_pong
 
-Playing with AI
+Play with AI
